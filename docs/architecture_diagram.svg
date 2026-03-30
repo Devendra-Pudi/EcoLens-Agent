@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900">
+  <!-- Define styles -->
+  <defs>
+    <style>
+      .title { font: bold 28px sans-serif; fill: #2c3e50; }
+      .subtitle { font: 16px sans-serif; fill: #7f8c8d; }
+      .box-title { font: bold 16px sans-serif; fill: white; }
+      .box-text { font: 14px sans-serif; fill: white; }
+      .label { font: 13px sans-serif; fill: #34495e; }
+      .arrow { stroke: #3498db; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .arrow-split { stroke: #e74c3c; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead-red); }
+      
+      .user-box { fill: #9b59b6; stroke: #8e44ad; stroke-width: 2; }
+      .vision-box { fill: #3498db; stroke: #2980b9; stroke-width: 2; }
+      .agent-box { fill: #27ae60; stroke: #229954; stroke-width: 2; }
+      .future-box { fill: #95a5a6; stroke: #7f8c8d; stroke-width: 2; stroke-dasharray: 5,5; }
+      
+      .shadow { filter: drop-shadow(3px 3px 4px rgba(0,0,0,0.2)); }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3498db" />
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#e74c3c" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" class="title">EcoLens Architecture</text>
+  <text x="400" y="65" text-anchor="middle" class="subtitle">Multimodal Multi-Agent System for Waste Management</text>
+  
+  <!-- User Photo Input -->
+  <g class="shadow">
+    <rect x="300" y="100" width="200" height="80" rx="10" class="user-box"/>
+    <text x="400" y="130" text-anchor="middle" class="box-title">📸 User Input</text>
+    <text x="400" y="155" text-anchor="middle" class="box-text">Photo of Waste Item</text>
+  </g>
+  
+  <!-- Arrow 1: User to Vision Agent -->
+  <path d="M 400 180 L 400 230" class="arrow"/>
+  <text x="420" y="210" class="label">Image Data</text>
+  
+  <!-- Vision Agent (Wall-E) -->
+  <g class="shadow">
+    <rect x="250" y="230" width="300" height="120" rx="10" class="vision-box"/>
+    <text x="400" y="260" text-anchor="middle" class="box-title">🤖 Agent 1: Wall-E</text>
+    <text x="400" y="285" text-anchor="middle" class="box-text">Material Scientist (Vision Agent)</text>
+    <text x="400" y="305" text-anchor="middle" class="box-text">Gemini 1.5 Flash + Vision</text>
+    <text x="400" y="330" text-anchor="middle" class="box-text">→ Material Analysis (Text)</text>
+  </g>
+  
+  <!-- Arrow 2: Vision to Text Description -->
+  <path d="M 400 350 L 400 400" class="arrow"/>
+  <text x="420" y="380" class="label">Text Description</text>
+  
+  <!-- Text Description Box -->
+  <g class="shadow">
+    <rect x="250" y="400" width="300" height="60" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2"/>
+    <text x="400" y="425" text-anchor="middle" font="italic 13px sans-serif" fill="#34495e">"PET plastic bottle, clean condition,</text>
+    <text x="400" y="445" text-anchor="middle" font="italic 13px sans-serif" fill="#34495e">single material, no food residue"</text>
+  </g>
+  
+  <!-- Split arrows to three agents -->
+  <path d="M 400 460 L 400 490" class="arrow-split"/>
+  <path d="M 400 490 L 150 490 L 150 540" class="arrow-split"/>
+  <path d="M 400 490 L 400 540" class="arrow-split"/>
+  <path d="M 400 490 L 650 490 L 650 540" class="arrow-split"/>
+  
+  <!-- Agent 2: Eve (Compliance) -->
+  <g class="shadow">
+    <rect x="50" y="540" width="200" height="140" rx="10" class="agent-box"/>
+    <text x="150" y="570" text-anchor="middle" class="box-title">👮 Agent 2: Eve</text>
+    <text x="150" y="595" text-anchor="middle" class="box-text">Compliance Officer</text>
+    <text x="150" y="615" text-anchor="middle" class="box-text">(Policy Agent)</text>
+    <line x1="70" y1="625" x2="230" y2="625" stroke="white" stroke-width="1" opacity="0.3"/>
+    <text x="150" y="645" text-anchor="middle" class="box-text">Output:</text>
+    <text x="150" y="665" text-anchor="middle" class="box-text" font-size="12">✓ Disposal Verdict</text>
+  </g>
+  
+  <!-- Agent 3: MacGyver (Upcycler) -->
+  <g class="shadow">
+    <rect x="300" y="540" width="200" height="140" rx="10" class="agent-box"/>
+    <text x="400" y="570" text-anchor="middle" class="box-title">🎨 Agent 3: MacGyver</text>
+    <text x="400" y="595" text-anchor="middle" class="box-text">Upcycling Expert</text>
+    <text x="400" y="615" text-anchor="middle" class="box-text">(Creative Agent)</text>
+    <line x1="320" y1="625" x2="480" y2="625" stroke="white" stroke-width="1" opacity="0.3"/>
+    <text x="400" y="645" text-anchor="middle" class="box-text">Output:</text>
+    <text x="400" y="665" text-anchor="middle" class="box-text" font-size="12">💡 Reuse Ideas</text>
+  </g>
+  
+  <!-- Future Agent (Dashed) -->
+  <g class="shadow">
+    <rect x="550" y="540" width="200" height="140" rx="10" class="future-box"/>
+    <text x="650" y="570" text-anchor="middle" class="box-title">🔮 Future Agents</text>
+    <text x="650" y="595" text-anchor="middle" class="box-text">GPS Rules Engine</text>
+    <text x="650" y="615" text-anchor="middle" class="box-text">Gamification</text>
+    <line x1="570" y1="625" x2="730" y2="625" stroke="white" stroke-width="1" opacity="0.3"/>
+    <text x="650" y="645" text-anchor="middle" class="box-text">Output:</text>
+    <text x="650" y="665" text-anchor="middle" class="box-text" font-size="12">📍 Local Rules</text>
+  </g>
+  
+  <!-- Final Output -->
+  <path d="M 150 680 L 150 730 L 300 730" class="arrow"/>
+  <path d="M 400 680 L 400 730" class="arrow"/>
+  <path d="M 650 680 L 650 730 L 500 730" class="arrow"/>
+  
+  <g class="shadow">
+    <rect x="250" y="730" width="300" height="100" rx="10" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+    <text x="400" y="760" text-anchor="middle" class="box-title">✅ Final Report to User</text>
+    <text x="400" y="785" text-anchor="middle" class="box-text" font-size="13">Material Analysis + Disposal Method</text>
+    <text x="400" y="805" text-anchor="middle" class="box-text" font-size="13">+ Upcycling Ideas</text>
+  </g>
+  
+  <!-- Key Features Box -->
+  <g class="shadow">
+    <rect x="50" y="850" width="700" height="40" rx="8" fill="#34495e" stroke="#2c3e50" stroke-width="2"/>
+    <text x="400" y="875" text-anchor="middle" class="box-text" font-size="14">
+      🎯 Multimodal Input • 🔗 Chain of Thought • 🤖 Agent Specialization • ♻️ Sustainability Impact
+    </text>
+  </g>
+</svg>
