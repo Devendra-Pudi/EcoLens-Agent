@@ -105,6 +105,12 @@ Visit: http://localhost:3000
 
 ## Troubleshooting
 
+### "Model currently experiencing high demand" (503 Error)
+This is a temporary issue with Google's Gemini API. The app now shows a user-friendly error message. Simply wait a few moments and try again. If it persists:
+- Wait 30-60 seconds between attempts
+- Try refreshing the page
+- Check [Google AI Status](https://status.cloud.google.com/) for outages
+
 ### CORS Errors
 Update `fastapi-app/app.py` CORS origins to include your frontend domain.
 

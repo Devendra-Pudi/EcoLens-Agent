@@ -10,6 +10,7 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [results, setResults] = useState(null)
   const [apiConfigured, setApiConfigured] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     fetch(`${API_BASE}/health`)
@@ -23,6 +24,7 @@ function App() {
 
     setLoading(true)
     setResults(null)
+    setError(null)
 
     const formData = new FormData()
     formData.append('file', selectedFile)
@@ -41,7 +43,7 @@ function App() {
       const data = await response.json()
       setResults(data)
     } catch (error) {
-      alert(`Error: ${error.message}`)
+      setError(error.message || 'Something went wrong. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -102,8 +104,8 @@ function App() {
         <footer className="text-center text-white mt-8">
           <p>&copy; 2026 EcoLens. Making sustainable choices easy.</p>
           <div className="mt-2 space-x-4">
-            <a href="http://localhost:8000/docs" className="hover:underline">API Docs</a>
-            <a href="http://localhost:8000/redoc" className="hover:underline">ReDoc</a>
+            <a href="/docs" className="hover:underline">API Docs</a>
+            <a href="/redoc" className="hover:underline">ReDoc</a>
           </div>
         </footer>
       </div>
@@ -112,6 +114,33 @@ function App() {
         <div className="fixed inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center z-50">
           <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-primary"></div>
           <p className="text-white mt-4 text-lg">Analyzing your waste item...</p>
+        </div>
+      )}
+
+      {error && (
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">Oops!</h3>
+              <p className="text-gray-600 mb-6">{error}</p>
+              <div className="space-y-2">
+                <button
+                  onClick={() => setError(null)}
+                  className="w-full bg-primary text-white py-3 px-6 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+                >
+                  Try Again
+                </button>
+                {error.includes('high demand') && (
+                  <p className="text-sm text-gray-500">The AI is busy. Please wait a moment.</p>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>

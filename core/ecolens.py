@@ -32,7 +32,7 @@ def get_client():
     return _client
 
 # We use 2.5 Flash because it is highly optimized for Image Analysis + Low Latency
-MODEL_NAME = "gemini-2.5-flash"
+MODEL_NAME = "models/gemini-3.1-flash-lite-preview"
 
 # ---------------------------------------------------------
 # 📸 IMAGE HANDLING

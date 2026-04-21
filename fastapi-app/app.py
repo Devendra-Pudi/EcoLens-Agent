@@ -200,9 +200,28 @@ async def analyze_waste(request: Request, file: UploadFile = File(...)):
         return response
     
     except Exception as e:
+        error_msg = str(e)
+
+        # Handle Google API specific errors
+        if "503" in error_msg and ("UNAVAILABLE" in error_msg or "high demand" in error_msg):
+            raise HTTPException(
+                status_code=503,
+                detail="The AI model is currently experiencing high demand. This is temporary. Please try again in a few moments."
+            )
+        elif "429" in error_msg or "rate limit" in error_msg.lower():
+            raise HTTPException(
+                status_code=429,
+                detail="Rate limit exceeded. Please wait a moment before trying again."
+            )
+        elif "400" in error_msg and ("API key" in error_msg or "authentication" in error_msg.lower()):
+            raise HTTPException(
+                status_code=401,
+                detail="Invalid API key. Please check your GOOGLE_API_KEY configuration."
+            )
+
         raise HTTPException(
             status_code=500,
-            detail=f"Analysis failed: {str(e)}"
+            detail=f"Analysis failed: {error_msg}"
         )
 
 @app.get("/api/results/{analysis_id}", response_model=AnalysisResponse, tags=["Analysis"])

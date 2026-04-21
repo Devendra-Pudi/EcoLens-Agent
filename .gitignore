@@ -23,6 +23,8 @@ package-lock.json
 .env.local
 .env.*.local
 *.key
+.env.example
+
 
 # Test images (keep samples)
 *.jpg
