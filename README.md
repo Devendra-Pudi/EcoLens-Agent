@@ -2,6 +2,8 @@
 
 A Multimodal Multi-Agent System for Smart Waste Management powered by Google Gemini AI.
 
+## **Live** :  https://ecolens-agent.vercel.app/
+
 ## 🌟 Features
 
 - **AI-Powered Analysis**: Three specialized agents analyze waste items
