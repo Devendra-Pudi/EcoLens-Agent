@@ -1,103 +1,119 @@
-# ♻️ EcoLens - The Intelligent Waste Analyst
+<div align="center">
 
-A Multimodal Multi-Agent System for Smart Waste Management powered by Google Gemini AI.
+# 🌿 EcoLens Agent
+### Intelligent Waste Analyst — Powered by Multi-Agent AI
 
-## **Live** :  https://ecolens-agent.vercel.app/
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://ecolens-agent.vercel.app)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
-## 🌟 Features
+> *Upload an image. Identify waste. Get actionable eco-friendly recommendations — instantly.*
 
-- **AI-Powered Analysis**: Three specialized agents analyze waste items
-  - 🔬 Wall-E: Material Scientist (identifies materials and condition)
-  - 👮 Eve: Compliance Officer (determines proper disposal method)
-  - 🎨 MacGyver: Upcycling Expert (suggests creative reuse ideas)
-- **Modern UI**: React + Vite + Tailwind CSS
-- **Fast API Backend**: Python FastAPI with rate limiting
-- **Image Upload**: Drag-and-drop or click to upload
-- **Export Reports**: Download analysis as Markdown
+</div>
 
-## 🚀 Tech Stack
+---
 
-### Frontend
-- React 18
-- Vite
-- Tailwind CSS
+## 📖 Overview
 
-### Backend
-- FastAPI
-- Google Gemini 2.5 Flash
-- SlowAPI (rate limiting)
-- Python 3.10+
+**EcoLens Agent** is an AI-powered web application that analyzes waste from uploaded images and returns intelligent, eco-friendly disposal and recycling recommendations. It leverages a **multi-agent AI architecture** inspired by the characters from WALL-E, with each agent handling a distinct phase of the analysis pipeline.
 
-## 📦 Installation
+---
+
+## 🤖 Agent Architecture
+
+| Agent | Role |
+|-------|------|
+| 🤖 **Wall-E** | Vision agent — identifies and classifies waste items from the image |
+| 🌿 **Eve** | Sustainability agent — generates eco-friendly recommendations |
+| 🔧 **MacGyver** | Creativity agent — suggests DIY upcycling and repurposing ideas |
+
+---
+
+## ✨ Features
+
+- 📸 **Image-based waste detection** — upload any photo for instant analysis
+- 🤖 **Multi-agent pipeline** — specialized agents collaborate for richer output
+- ♻️ **Eco-friendly recommendations** — recycling, composting, upcycling suggestions
+- ⚡ **Fast API backend** — rate-limited FastAPI server with CORS support
+- 🌐 **Responsive React frontend** — built with Vite + Tailwind CSS
+- 🚀 **Deployed on Vercel** — live and accessible anywhere
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React, Vite, Tailwind CSS |
+| Backend | Python, FastAPI |
+| AI Model | Google Gemini (Vision + Text) |
+| Deployment | Vercel (Frontend), Vercel Functions (Backend) |
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
-- Python 3.10+
+- Python 3.9+
 - Node.js 18+
-- Google API Key ([Get one here](https://aistudio.google.com/app/apikey))
+- Google Gemini API Key
 
-### Backend Setup
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/Devendra-Pudi/EcoLens-Agent.git
+cd EcoLens-Agent
+
+# Backend setup
 cd fastapi-app
 pip install -r requirements.txt
-```
+echo "GEMINI_API_KEY=your_key_here" > .env
+uvicorn main:app --reload
 
-Create `.env` file in the root directory:
-```
-GOOGLE_API_KEY=your_api_key_here
-```
-
-Run the backend:
-```bash
-python -m uvicorn app:app --host 127.0.0.1 --port 8000
-```
-
-### Frontend Setup
-
-```bash
-cd frontend
+# Frontend setup (new terminal)
+cd ../frontend
 npm install
 npm run dev
 ```
 
-Visit http://localhost:3000
+Open `http://localhost:5173` in your browser.
 
-## 🌐 Deployment
+---
 
-### Vercel Deployment
+## 📁 Project Structure
 
-1. Fork this repository
-2. Import to Vercel
-3. Add environment variable: `GOOGLE_API_KEY`
-4. Deploy!
+```
+EcoLens-Agent/
+├── core/               # Shared agent logic & utilities
+├── fastapi-app/        # FastAPI backend (API routes, agents)
+├── frontend/           # React + Vite + Tailwind frontend
+├── deployment/         # Vercel deployment config
+├── tests/              # Unit tests
+├── docs/               # Documentation
+└── QUICKSTART.md       # Quick setup guide
+```
 
-The app will automatically deploy both frontend and backend.
+---
 
-## 📝 API Endpoints
+## 🌍 Live Demo
 
-- `GET /health` - Health check
-- `POST /api/analyze` - Analyze waste item (5/min, 20/hour)
-- `GET /api/results/{id}` - Get analysis results
-- `GET /api/history` - Get analysis history
-- `GET /api/export/{id}` - Export report (json/markdown/txt)
-- `GET /docs` - API documentation
+**→ [ecolens-agent.vercel.app](https://ecolens-agent.vercel.app)**
 
-## 🎯 Rate Limits
-
-- `/api/analyze`: 5 requests/minute, 20 requests/hour
-- `/health`: 60 requests/minute
-- Other endpoints: 30 requests/minute
+---
 
 ## 📄 License
 
-MIT License
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
-## 👥 Authors
+---
 
-Devendra Pudi
+<div align="center">
 
-## 🙏 Acknowledgments
+Made with 💚 for a greener planet by [Devendra Prasad Pudi](https://github.com/Devendra-Pudi)
 
-- Google Gemini AI
-- FastAPI
-- React + Vite
+⭐ Star this repo if you found it useful!
+
+</div>
